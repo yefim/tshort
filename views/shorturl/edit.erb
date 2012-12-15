@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<%#include "shorturl.h" %>
+<% tfetch(QVariantHash, shorturl); %>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= controller()->name() + ": " + controller()->activeAction() %></title>
+</head>
+<body>
+<p style="color: red"><%=$ error %></p>
+<p style="color: green"><%=$ notice %></p>
+
+<h1>Editing Shorturl</h1>
+
+<%== formTag(urla("save", shorturl["id"]), Tf::Post) %>
+  <p>
+    <label>ID<br /><input type="text" name="shorturl[id]" value="<%= shorturl["id"] %>" readonly="readonly" /></label>
+  </p>
+  <p>
+    <label>Keyword<br /><input type="text" name="shorturl[keyword]" value="<%= shorturl["keyword"] %>" /></label>
+  </p>
+  <p>
+    <label>Url<br /><input type="text" name="shorturl[url]" value="<%= shorturl["url"] %>" /></label>
+  </p>
+  <p>
+    <label>Hits<br /><input type="text" name="shorturl[hits]" value="<%= shorturl["hits"] %>" /></label>
+  </p>
+  <p>
+    <input type="submit" value="Update" />
+  </p>
+</form>
+
+<%== linkTo("Show", urla("show", shorturl["id"])) %> |
+<%== linkTo("Back", urla("index")) %>
+</body>
+</html>

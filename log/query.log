@@ -1,0 +1,3 @@
+2012-12-15 18:07:30  [4316467200] [BEGIN] [databaseId:0]
+2012-12-15 18:07:30  [4316467200] SELECT "id", "keyword", "url", "hits", "created_at", "updated_at", "lock_revision" FROM shorturl
+2012-12-15 18:07:30  [4316467200] [COMMIT] [databaseId:0]

@@ -1,0 +1,8 @@
+HEADERS += shorturl_editView.moc
+SOURCES += shorturl_editView.cpp
+HEADERS += shorturl_entryView.moc
+SOURCES += shorturl_entryView.cpp
+HEADERS += shorturl_indexView.moc
+SOURCES += shorturl_indexView.cpp
+HEADERS += shorturl_showView.moc
+SOURCES += shorturl_showView.cpp
