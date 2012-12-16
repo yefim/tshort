@@ -7,13 +7,13 @@
 
 <%== formTag(urla("create"), Tf::Post) %>
   <p>
-    <label>Keyword<br /><input name="shorturl[keyword]" value="<%= shorturl["keyword"] %>" /></label>
+    <label>Keyword<br /><input type="text" class="input-large" placeholder="Keyword" name="shorturl[keyword]" value="<%= shorturl["keyword"] %>"></label>
   </p>
   <p>
-    <label>Url<br /><input name="shorturl[url]" value="<%= shorturl["url"] %>" /></label>
+    <label>Url<br /><input type="text" class="input-large" placeholder="Url" name="shorturl[url]" value="<%= shorturl["url"] %>"></label>
   </p>
   <p>
-    <input type="submit" value="Create" />
+    <input type="submit" value="Create" class="btn btn-primary">
   </p>
 </form>
 
