@@ -9,7 +9,7 @@ Install [treefrog](http://www.treefrogframework.org/documents/install).
 Create a sqlite3 database with:
 
 ```
-$ sqlite3 db/shortendb < shortendb.sql
+$ sqlite3 db/shortenerdb < shortenerdb.sql
 ```
 
 Run qmake to compile the app.
