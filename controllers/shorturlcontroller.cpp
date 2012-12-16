@@ -27,21 +27,24 @@ void ShorturlController::show(const QString &pk)
 
 void ShorturlController::lookup(const QString &pk)
 {
-    // Based on example tfrog code
+    // Construct the query
     TSqlORMapper<ShorturlObject> mapper;
     TCriteria criteria(ShorturlObject::Keyword, TSql::Equal, pk);
+
+    // Throw 404 if query not found
     if (!mapper.find(criteria)) {
-        // keyword was not found
         renderErrorResponse(404);
         return;
     }
+    // Get the shorturl object
     Shorturl shorturl = mapper.value(0);
 
+    // Increment the hit counter
     shorturl.setHits(shorturl.hits() + 1);
     shorturl.save();
 
+    // Redirect
     QString url = shorturl.url();
-    QString newurl;
     if (url.startsWith(QString("http://"))) {
         redirect("http://" + url.right(url.size() - 7));
     } else if (url.startsWith(QString("https://"))) {
