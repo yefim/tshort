@@ -6,3 +6,5 @@ Makefile
 /log/
 /views/_src/*
 !/views/_src/_src.pro
+db/
+tmp/
