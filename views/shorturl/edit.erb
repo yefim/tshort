@@ -1,12 +1,5 @@
-<!DOCTYPE HTML>
 <%#include "shorturl.h" %>
 <% tfetch(QVariantHash, shorturl); %>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title><%= controller()->name() + ": " + controller()->activeAction() %></title>
-</head>
-<body>
 <p style="color: red"><%=$ error %></p>
 <p style="color: green"><%=$ notice %></p>
 
@@ -26,5 +19,3 @@
 
 <%== linkTo("Show", urla("show", shorturl["id"])) %> |
 <%== linkTo("Back", urla("index")) %>
-</body>
-</html>

@@ -1,12 +1,4 @@
-<!DOCTYPE HTML>
 <%#include "shorturl.h" %>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title><%= controller()->name() + ": " + controller()->activeAction() %></title>
-</head>
-<body>
-
 <h1>Listing Shorturl</h1>
 
 <%== linkTo("New entry", urla("entry")) %><br />
@@ -34,6 +26,3 @@
   </tr>
 <% } %>
 </table>
-
-</body>
-</html>
