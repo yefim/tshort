@@ -18,7 +18,7 @@
        const Shorturl &i = it.next(); %>
     <tr>
       <td><%= i.id() %></td>
-      <td><%== linkTo(i.keyword(), "/l/" + i.keyword()) %>
+      <td><a href='/l/<%= i.keyword() %>' class='link' target='_blank'><%= i.keyword() %></a>
       <td><%= i.url() %></td>
       <td><%= i.hits() %></td>
       <td>
