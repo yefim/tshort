@@ -27,3 +27,9 @@ Go to `http://localhost:8800/shorturl/` to view.
 # Architecture
 
 TShort is primarily built on the [treefrog](http://www.treefrogframework.org) framework, a C++ framework very similar to Rails. For the style, we used [Twitter Bootstrap](http://twitter.github.com/bootstrap/). For a database, we used sqlite3 in development and MySQL in production.
+
+# Contributors
+
+- Geoffrey Vedernikoff <veg@seas.upenn.edu>
+- Kai Ninomiya <kainino@seas.upenn.edu>
+- Ceasar Bautista <ceasarb@seas.upenn.edu>
