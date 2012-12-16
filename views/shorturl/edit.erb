@@ -3,7 +3,7 @@
 <p style="color: red"><%=$ error %></p>
 <p style="color: green"><%=$ notice %></p>
 
-<h1>Editing Shorturl</h1>
+<h1>Editing TShort</h1>
 
 <%== formTag(urla("save", shorturl["id"]), Tf::Post) %>
   <p>
@@ -13,7 +13,7 @@
     <label>Url<br /><input type="text" name="shorturl[url]" value="<%= shorturl["url"] %>" /></label>
   </p>
   <p>
-    <input type="submit" value="Update" />
+    <input class='btn btn-primary' type="submit" value="Update" />
   </p>
 </form>
 
