@@ -14,16 +14,10 @@
 
 <%== formTag(urla("save", shorturl["id"]), Tf::Post) %>
   <p>
-    <label>ID<br /><input type="text" name="shorturl[id]" value="<%= shorturl["id"] %>" readonly="readonly" /></label>
-  </p>
-  <p>
     <label>Keyword<br /><input type="text" name="shorturl[keyword]" value="<%= shorturl["keyword"] %>" /></label>
   </p>
   <p>
     <label>Url<br /><input type="text" name="shorturl[url]" value="<%= shorturl["url"] %>" /></label>
-  </p>
-  <p>
-    <label>Hits<br /><input type="text" name="shorturl[hits]" value="<%= shorturl["hits"] %>" /></label>
   </p>
   <p>
     <input type="submit" value="Update" />
