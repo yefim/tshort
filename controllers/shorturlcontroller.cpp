@@ -1,5 +1,10 @@
+#include <TGlobal>
+#include <TreeFrogModel>
+#include <TCriteria.h>
+
 #include "shorturlcontroller.h"
 #include "shorturl.h"
+#include "sqlobjects/shorturlobject.h"
 
 
 ShorturlController::ShorturlController(const ShorturlController &)
@@ -15,7 +20,10 @@ void ShorturlController::index()
 
 void ShorturlController::show(const QString &pk)
 {
-    Shorturl shorturl = Shorturl::get(pk.toInt());
+    TSqlORMapper<ShorturlObject> g;
+    TCriteria cri2(ShorturlObject::Keyword, TSql::Equal, pk);
+    g.find(cri2);
+    Shorturl shorturl = g.value(0);
     texport(shorturl);
     render();
 }
