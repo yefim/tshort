@@ -1,7 +1,7 @@
 <%#include "shorturl.h" %>
 <h1>TShort <small>A link shortener written in the C++ TreeFrog Framework</small></h1>
 
-<%== linkTo("New TShort", urla("entry")) %>
+<a href='<%= urla("entry") %>' class='btn btn-primary btn-large'>New TShort</a>
 
 <table class='table'>
   <thead>
@@ -10,7 +10,7 @@
       <th>Keyword</th>
       <th>Url</th>
       <th>Hits</th>
-      <th>Actions</th>
+      <th class='actions'>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -23,9 +23,11 @@
       <td><%= i.url() %></td>
       <td><%= i.hits() %></td>
       <td>
-        <%== linkTo("Show", urla("show", i.id())) %>
-        <%== linkTo("Edit", urla("edit", i.id())) %>
-        <%== linkTo("Remove", urla("remove", i.id()), Tf::Post, "confirm('Are you sure?')") %>
+        <div class='btn-group'>
+          <a href='<%= urla("show", i.id()) %>' class='btn'>Show</a>
+          <a href='<%= urla("edit", i.id()) %>' class='btn'>Edit</a>
+          <a href='<%= urla("remove", i.id()) %>' onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); document.body.appendChild(f); f.method = 'post'; f.action = this.href; var i = document.createElement('input'); f.submit(); } return false;" class='btn'>Remove</a>
+        </div>
       </td>
     </tr>
   <% } %>

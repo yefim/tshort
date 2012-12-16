@@ -27,3 +27,7 @@ footer a:hover {
   color: #111;
   text-decoration: none;
 }
+
+.actions {
+  width: 100px;
+}

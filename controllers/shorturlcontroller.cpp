@@ -36,6 +36,7 @@ void ShorturlController::lookup(const QString &pk)
     }
     Shorturl shorturl = mapper.value(0);
     shorturl.setHits(shorturl.hits() + 1);
+    shorturl.save();
     QByteArray ba = shorturl.url().toLocal8Bit();
     const char *s = ba.data();
     if (strstr("http://", s) || strstr("https://", s)) {
