@@ -30,10 +30,15 @@ void ShorturlController::lookup(const QString &pk)
     // Based on example tfrog code
     TSqlORMapper<ShorturlObject> mapper;
     TCriteria criteria(ShorturlObject::Keyword, TSql::Equal, pk);
-    mapper.find(criteria);
+    if (!mapper.find(criteria)) {
+        // keyword was not found
+        renderErrorResponse(404);
+        return;
+    }
     Shorturl shorturl = mapper.value(0);
 
     shorturl.setHits(shorturl.hits() + 1);
+    shorturl.save();
 
     QString url = shorturl.url();
     QString newurl;
@@ -56,7 +61,7 @@ void ShorturlController::create()
     if (httpRequest().method() != Tf::Post) {
         return;
     }
-    
+
     QVariantHash form = httpRequest().formItems("shorturl");
     Shorturl shorturl = Shorturl::create(form);
     if (!shorturl.isNull()) {
@@ -101,8 +106,8 @@ void ShorturlController::save(const QString &pk)
         tflash(error);
         redirect(urla("edit", pk));
         return;
-    } 
-    
+    }
+
     QVariantHash form = httpRequest().formItems("shorturl");
     shorturl.setProperties(form);
     if (shorturl.save()) {
@@ -127,7 +132,7 @@ void ShorturlController::remove(const QString &pk)
     if (httpRequest().method() != Tf::Post) {
         return;
     }
-    
+
     Shorturl shorturl = Shorturl::get(pk.toInt());
     shorturl.remove();
     redirect(urla("index"));

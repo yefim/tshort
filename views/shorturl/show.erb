@@ -3,14 +3,27 @@
 <p style="color: red"><%=$ error %></p>
 <p style="color: green"><%=$ notice %></p>
 
-<h1>Showing Shorturl</h1>
-<dt>ID</dt><dd><%= shorturl.id() %></dd><br />
-<dt>Keyword</dt><dd><%= shorturl.keyword() %></dd><br />
-<dt>Url</dt><dd><%= shorturl.url() %></dd><br />
-<dt>Hits</dt><dd><%= shorturl.hits() %></dd><br />
-<dt>Created at</dt><dd><%= shorturl.createdAt() %></dd><br />
-<dt>Updated at</dt><dd><%= shorturl.updatedAt() %></dd><br />
-<dt>Lock Revision</dt><dd><%= shorturl.lockRevision() %></dd><br />
+<h1>Showing TShort</h1>
+<table class='table table-striped'>
+  <tr>
+    <td><strong>ID</strong></strong></td><td><%= shorturl.id() %></td>
+  </tr>
+  <tr>
+    <td><strong>Keyword</strong></td><td><%= shorturl.keyword() %></td>
+  </tr>
+  <tr>
+    <td><strong>Url</strong></td><td><%= shorturl.url() %></td>
+  </tr>
+  <tr>
+    <td><strong>Hits</strong></td><td><%= shorturl.hits() %></td>
+  </tr>
+  <tr>
+    <td><strong>Created at</strong></td><td><%= shorturl.createdAt() %></td>
+  </tr>
+  <tr>
+    <td><strong>Updated at</strong></td><td><%= shorturl.updatedAt() %></td>
+  </tr>
+</table>
 
 <%== linkTo("Edit", urla("edit", shorturl.id())) %> |
 <%== linkTo("Back", urla("index")) %>
