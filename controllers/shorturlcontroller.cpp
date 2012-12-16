@@ -27,13 +27,19 @@ void ShorturlController::show(const QString &pk)
 
 void ShorturlController::lookup(const QString &pk)
 {
+    // Based on example tfrog code
     TSqlORMapper<ShorturlObject> mapper;
     TCriteria criteria(ShorturlObject::Keyword, TSql::Equal, pk);
     mapper.find(criteria);
     Shorturl shorturl = mapper.value(0);
+
     shorturl.setHits(shorturl.hits() + 1);
+
+    // shorturl.url returns a QString object but we need a string to use strstr
+    // This is some arcane way of converting
     QByteArray ba = shorturl.url().toLocal8Bit();
     const char *s = ba.data();
+
     if (strstr("http://", s) || strstr("https://", s)) {
         redirect(shorturl.url());
     } else {
