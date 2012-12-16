@@ -1,6 +1,6 @@
 #include <TGlobal>
 #include <TreeFrogModel>
-#include <TCriteria.h>
+#include <TCriteria>
 
 #include "shorturlcontroller.h"
 #include "shorturl.h"
@@ -20,12 +20,25 @@ void ShorturlController::index()
 
 void ShorturlController::show(const QString &pk)
 {
-    TSqlORMapper<ShorturlObject> g;
-    TCriteria cri2(ShorturlObject::Keyword, TSql::Equal, pk);
-    g.find(cri2);
-    Shorturl shorturl = g.value(0);
+    Shorturl shorturl = Shorturl::get(pk.toInt());
     texport(shorturl);
     render();
+}
+
+void ShorturlController::lookup(const QString &pk)
+{
+    TSqlORMapper<ShorturlObject> mapper;
+    TCriteria criteria(ShorturlObject::Keyword, TSql::Equal, pk);
+    mapper.find(criteria);
+    Shorturl shorturl = mapper.value(0);
+    shorturl.setHits(shorturl.hits() + 1);
+    QByteArray ba = shorturl.url().toLocal8Bit();
+    const char *s = ba.data();
+    if (strstr("http://", s) || strstr("https://", s)) {
+        redirect(shorturl.url());
+    } else {
+        redirect("http://" + shorturl.url());
+    }
 }
 
 void ShorturlController::entry()
