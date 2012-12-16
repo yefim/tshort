@@ -1,1 +1,8 @@
-../.gitignore
+*.o
+*.moc
+moc_*
+Makefile
+/lib/
+/log/
+/views/_src/*
+!/views/_src/_src.pro
