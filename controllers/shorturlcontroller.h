@@ -14,6 +14,7 @@ public:
 public slots:
     void index();
     void show(const QString &pk);
+    void lookup(const QString &pk);
     void entry();
     void create();
     void edit(const QString &pk);
