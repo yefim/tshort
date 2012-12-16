@@ -2,6 +2,13 @@
   width: 960px;
   margin: 0 auto;
 }
+h1 small a {
+  color: #999;
+}
+h1 small a:hover {
+  text-decoration: none;
+  color: #444;
+}
 footer {
   padding: 18px 0px;
   border-top: 1px solid #eee;
