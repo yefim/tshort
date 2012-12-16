@@ -1,7 +1,6 @@
 <%#include "shorturl.h" %>
+<a href='<%= urla("entry") %>' class='pull-right btn btn-primary btn-large'>New TShort</a>
 <h1>TShort <small>A link shortener written in the C++ TreeFrog Framework</small></h1>
-
-<a href='<%= urla("entry") %>' class='btn btn-primary btn-large'>New TShort</a>
 
 <table class='table'>
   <thead>
@@ -26,7 +25,7 @@
         <div class='btn-group'>
           <a href='<%= urla("show", i.id()) %>' class='btn'>Show</a>
           <a href='<%= urla("edit", i.id()) %>' class='btn'>Edit</a>
-          <a href='<%= urla("remove", i.id()) %>' onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); document.body.appendChild(f); f.method = 'post'; f.action = this.href; var i = document.createElement('input'); f.submit(); } return false;" class='btn'>Remove</a>
+          <a href='<%= urla("remove", i.id()) %>' onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); document.body.appendChild(f); f.method = 'post'; f.action = this.href; var i = document.createElement('input'); f.submit(); } return false;" class='btn btn-danger'>Remove</a>
         </div>
       </td>
     </tr>
