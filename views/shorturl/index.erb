@@ -19,7 +19,7 @@
        const Shorturl &i = it.next(); %>
     <tr>
       <td><%= i.id() %></td>
-      <td><%= i.keyword() %></td>
+      <td><%== linkTo(i.keyword(), "/l/" + i.keyword()) %>
       <td><%= i.url() %></td>
       <td><%= i.hits() %></td>
       <td>
