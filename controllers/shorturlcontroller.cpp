@@ -35,13 +35,12 @@ void ShorturlController::lookup(const QString &pk)
 
     shorturl.setHits(shorturl.hits() + 1);
 
-    // shorturl.url returns a QString object but we need a string to use strstr
-    // This is some arcane way of converting
-    QByteArray ba = shorturl.url().toLocal8Bit();
-    const char *s = ba.data();
-
-    if (strstr("http://", s) || strstr("https://", s)) {
-        redirect(shorturl.url());
+    QString url = shorturl.url();
+    QString newurl;
+    if (url.startsWith(QString("http://"))) {
+        redirect("http://" + url.right(url.size() - 7));
+    } else if (url.startsWith(QString("https://"))) {
+        redirect("https://" + url.right(url.size() - 8));
     } else {
         redirect("http://" + shorturl.url());
     }
