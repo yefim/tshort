@@ -23,7 +23,7 @@ Run `make`
 
 Run the server with `treefrog -e dev`.
 
-Go to `http://localhost:8800/shorturl/` to view.
+Go to [localhost:8800/](http://localhost:8800) to view.
 
 # Architecture
 
