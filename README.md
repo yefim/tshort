@@ -9,6 +9,7 @@ Install [treefrog](http://www.treefrogframework.org/documents/install).
 Create a sqlite3 database with:
 
 ```
+$ mkdir db
 $ sqlite3 db/shortenerdb < shortenerdb.sql
 ```
 
